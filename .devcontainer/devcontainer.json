@@ -1,0 +1,40 @@
+{
+  "name": "simple-qr-platba",
+  "image": "mcr.microsoft.com/devcontainers/go:1.26-trixie",
+  "remoteUser": "vscode",
+  "workspaceFolder": "/workspace",
+  "containerEnv": {
+    "GOTOOLCHAIN": "local",
+    "APP_NAME": "Simple QR-Platba",
+    "HTTP_PORT": "3000"
+  },
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "Simple QR Platba",
+      "onAutoForward": "notify"
+    }
+  },
+  "mounts": [
+    "source=go-mod-cache,target=/go/pkg/mod,type=volume",
+    "source=go-build-cache,target=/root/.cache/go-build,type=volume"
+  ],
+  "runArgs": ["--name=simple-qr-platba", "--network=ingress"],
+  "postCreateCommand": "sudo chown -R vscode:vscode /workspace",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "golang.Go"
+      ],
+      "settings": {
+        "terminal.integrated.gpuAcceleration": "on",
+        "terminal.integrated.scrollback": 2000,
+        "go.useLanguageServer": true,
+        "go.toolsManagement.autoUpdate": false,
+        "go.formatTool": "gofmt",
+        "gopls": { "ui.semanticTokens": true },
+        "go.alternateTools": { "gopls": "/go/bin/gopls" }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+# Dotfiles are ignored by default.
+.*
+
+# Dotfiles intentionally allowed in the Docker build context.
+!.dockerignore
+
+# Build context exclusions
+Dockerfile
+*.png
+*.log
+tmp/
+dist/
+bin/

@@ -1,0 +1,29 @@
+# Dotfiles are ignored by default.
+.*
+
+# Dotfiles intentionally kept in the repository.
+!.devcontainer/
+.devcontainer/*
+!.devcontainer/devcontainer.json
+!.dockerignore
+!.env.example
+!.gitignore
+
+# Local caches and temp files
+tmp/
+*.log
+*.pid
+
+# Build outputs
+bin/
+dist/
+simple-qr-platba
+
+# Go test/coverage artifacts
+*.test
+*.prof
+coverage.out
+*.coverprofile
+
+# Generated QR images
+*.png

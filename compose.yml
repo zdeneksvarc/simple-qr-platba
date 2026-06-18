@@ -1,0 +1,11 @@
+services:
+  simple-qr-platba:
+    build: .
+    image: simple-qr-platba:local
+    environment:
+      HTTP_PORT: "3000"
+      ENDPOINT: "/image"
+      PRESET: "DEMO|1234567890|1234|CZK,DEMO2|1234567890|4321|EUR"
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
